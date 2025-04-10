@@ -16,7 +16,7 @@ class BarApp
     body = {
       "error": {
         "code": 400,
-        "message": "Bad Request",
+        "message": "Bad Request, expecting JSON data",
         "details": e.message,
         "request": {
           "method": env['REQUEST_METHOD'],
