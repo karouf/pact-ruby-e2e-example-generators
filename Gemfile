@@ -5,7 +5,11 @@ if ENV['X_PACT_DEVELOPMENT']
   gem "pact-support", path: '../pact-support'
   gem "pact-mock_service", path: '../pact-mock_service'
 else
-  gem "pact", "~> 1.63"
+  if ENV['FAIL']
+    gem "pact", "1.66.0"
+  else
+    gem "pact", "1.65.3"
+  end
 end
 
 gem "pact_broker-client"
