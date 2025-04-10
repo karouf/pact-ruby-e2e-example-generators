@@ -9,35 +9,59 @@
     {
       "description": "a retrieve thing request",
       "request": {
-        "method": "get",
+        "method": "POST",
         "path": "/thing",
+        "body": {
+          "user": {
+            "name": "string"
+          }
+        },
+        "generators": {
+          "body": {
+            "$.user.name": {
+              "size": 20,
+              "type": "RandomString"
+            }
+          }
+        },
         "headers": {
-          "Accept": "application/json"
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$.user.name": {
+              "matchers": [{
+                  "match": "type"
+                }]
+            }
+          }
         }
       },
       "response": {
         "status": 200,
+        "body": {
+          "user": {
+            "name": "string"
+          }
+        },
+        "generators": {
+          "body": {
+            "$.user.name": {
+              "size": 20,
+              "type": "RandomString"
+            }
+          }
+        },
         "headers": {
           "Content-Type": "application/json"
         },
-        "body": {
-          "company": "My big company",
-          "factories": [
-            {
-              "location": "Sydney",
-              "capacity": 5
-            }
-          ]
-        },
         "matchingRules": {
-          "$.body.company": {
-            "match": "type"
-          },
-          "$.body.factories": {
-            "min": 1
-          },
-          "$.body.factories[*].*": {
-            "match": "type"
+          "body": {
+            "$.user.name": {
+              "matchers": [{
+                  "match": "type"
+                }]
+            }
           }
         }
       }
@@ -45,7 +69,7 @@
   ],
   "metadata": {
     "pactSpecification": {
-      "version": "2.0.0"
+      "version": "3.0.0"
     }
   }
 }
