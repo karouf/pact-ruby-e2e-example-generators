@@ -41,28 +41,11 @@
         "status": 200,
         "body": {
           "user": {
-            "name": "string"
-          }
-        },
-        "generators": {
-          "body": {
-            "$.user.name": {
-              "size": 20,
-              "type": "RandomString"
-            }
+            "name": "John Doe"
           }
         },
         "headers": {
           "Content-Type": "application/json"
-        },
-        "matchingRules": {
-          "body": {
-            "$.user.name": {
-              "matchers": [{
-                  "match": "type"
-                }]
-            }
-          }
         }
       }
     }
