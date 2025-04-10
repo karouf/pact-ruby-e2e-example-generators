@@ -12,7 +12,7 @@ class BarApp
     [status, headers, [body]]
   rescue JSON::ParserError => e
     status = 400
-    headers = {'Content-Type' => 'application/json; charset=utf-8'}
+    headers = {'Content-Type' => 'application/json'}
     body = {
       "error": {
         "code": 400,
